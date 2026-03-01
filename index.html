@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Цифровое творчество | Новый фон</title>
+    <!-- Шрифты -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Carattere&family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background-color: #2a2a2a;
+            color: #2d2d2a;
+            line-height: 1.5;
+        }
+        
+        .background-ambient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            
+            background-image: url('https://static.vecteezy.com/system/resources/previews/014/030/293/non_2x/abstract-white-and-gray-gradient-background-illustration-vector.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(1) saturate(1);
+            z-index: -2;
+        }
+        
+        .background-ambient::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.1);
+            z-index: -1;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 2.5rem 3rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero {
+            text-align: center;
+            margin-bottom: 3.5rem;
+            padding-top: 2rem;
+        }
+        .hero h1 {
+            font-family: 'Carattere', cursive;
+            font-weight: 400;
+            font-size: clamp(4rem, 15vw, 8rem);
+            letter-spacing: 0.02em;
+            color: #2c3e2c;
+            text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.7);
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+        }
+        .hero .sub {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 300;
+            font-style: italic;
+            color: #3d5533;
+            border-bottom: 1px solid #7f9f75;
+            padding-bottom: 1.8rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .art-card {
+            background: rgba(35, 45, 35, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 32px;
+            overflow: hidden;
+            border: 1px solid rgba(90, 110, 70, 0.5);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+        .art-card:hover {
+            transform: translateY(-8px);
+            border-color: #5a7550;
+            background: rgba(50, 65, 45, 0.8);
+        }
+        .image-frame {
+            position: relative;
+            width: 100%;
+            padding-bottom: 125%;
+            overflow: hidden;
+            background: #3a4a37;
+        }
+        .image-frame img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .art-card:hover .image-frame img {
+            transform: scale(1.05);
+        }
+        .card-info {
+            padding: 1rem 1.2rem 1.3rem;
+            background: rgba(25, 35, 22, 0.6);
+            backdrop-filter: blur(5px);
+            border-top: 1px solid #8bb282;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .card-info h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            font-size: 1.4rem;
+            font-style: italic;
+            color: #f0f7e4;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .ai-badge {
+            background: rgba(55, 75, 45, 0.6);
+            border: 1px solid #b6dba5;
+            color: #ecffe0;
+            font-size: 0.7rem;
+            padding: 0.25rem 0.9rem;
+            border-radius: 40px;
+            font-weight: 400;
+            text-transform: uppercase;
+        }
+        .footer-note {
+            text-align: center;
+            margin-top: 4rem;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: #3b5435;
+            border-top: 1px solid #7f9f75;
+            padding-top: 2.2rem;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 1rem 1.2rem 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-ambient"></div>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Digital creativity</h1>
+            <div class="sub">нейросети · земные мотивы</div>
+        </section>
+
+        <!-- Галерея с картинами (без изменений) -->
+        <div class="gallery-grid">
+            <!-- 1 -->
+            <div class="art-card">
+                <div class="image-frame"><img src="https://images.trustinnews.pt/uploads/sites/5/2019/12/5715151sonho.jpg" alt="Сюрреалистический сон" loading="lazy"></div>
+                <div class="card-info"><h3>пробуждение во сне</h3><span class="ai-badge">DALL·E</span></div>
+            </div>
+            <!-- 2 -->
+            <div class="art-card">
+                <div class="image-frame"><img src="https://avatars.mds.yandex.net/i?id=0f0c30c9daf6d259f5510202e83c40aa_l-4580161-images-thumbs&n=13" alt="Космическая арка" loading="lazy"></div>
+                <div class="card-info"><h3>воспоминания</h3><span class="ai-badge">Midjourney</span></div>
+            </div>
+            <!-- 3 -->
+            <div class="art-card">
+                <div class="image-frame"><img src="https://artchive.ru/res/media/img/oy800/article/789/317937.jpg" alt="Мистический лес" loading="lazy"></div>
+                <div class="card-info"><h3>лес духов</h3><span class="ai-badge">StableDiff</span></div>
+            </div>
+            <!-- 4 -->
+            <div class="art-card">
+                <div class="image-frame"><img src="https://avatars.mds.yandex.net/i?id=7c104f525db243f2c53b935ff869e042_l-4954618-images-thumbs&n=13" alt="Девушка с цветами" loading="lazy"></div>
+                <div class="card-info"><h3>цифровая флора</h3><span class="ai-badge">DALL·E 3</span></div>
+            </div>
+            <!-- 5 -->
+            <div class="art-card">
+                <div class="image-frame"><img src="https://avatars.mds.yandex.net/i?id=0ecb797edcbb8c37ead8e8908f1e5f81_l-5287885-images-thumbs&n=13" alt="Город в облаках" loading="lazy"></div>
+                <div class="card-info"><h3>небесная обитель</h3><span class="ai-badge">Midjourney</span></div>
+            </div>
+            <!-- 6 -->
+            <div class="art-card">
+                <div class="image-frame"><img src="https://avatars.mds.yandex.net/i?id=931d16b5d7420624564c78ae1c096640_l-11501519-images-thumbs&n=13" alt="Киберпанк" loading="lazy"></div>
+                <div class="card-info"><h3>неоновый силуэт</h3><span class="ai-badge">DeepAI</span></div>
+            </div>
+            <!-- 7 -->
+            <div class="art-card">
+                <div class="image-frame"><img src="https://avatars.mds.yandex.net/i?id=fc97d64145cc4b44d5c9e11d8fc09651_l-10148308-images-thumbs&n=13" alt="Женщина в уборах" loading="lazy"></div>
+                <div class="card-info"><h3>галактический убор</h3><span class="ai-badge">DALL·E</span></div>
+            </div>
+            <!-- 8 -->
+            <div class="art-card">
+                <div class="image-frame"><img src="https://avatars.mds.yandex.net/i?id=c272f5ef00664fb7e80884b5727f316b_l-4407994-images-thumbs&n=13" alt="Пейзаж с часами" loading="lazy"></div>
+                <div class="card-info"><h3>искажение времени</h3><span class="ai-badge">StableDiff</span></div>
+            </div>
+            <!-- 9 (название изменено) -->
+            <div class="art-card">
+                <div class="image-frame"><img src="https://avatars.mds.yandex.net/i?id=e910b40dc480324b8dc24da5590b3663_l-5221309-images-thumbs&n=13" alt="Мифическое существо" loading="lazy"></div>
+                <div class="card-info"><h3>горы полета</h3><span class="ai-badge">Midjourney</span></div>
+            </div>
+            <!-- 10 -->
+            <div class="art-card">
+                <div class="image-frame"><img src="https://papik.pro/uploads/posts/2023-01/1674323510_papik-pro-p-risunki-ot-neiroseti-12.jpg" alt="Яркие краски" loading="lazy"></div>
+                <div class="card-info"><h3>краски подсознания</h3><span class="ai-badge">DeepAI</span></div>
+            </div>
+            <!-- 11 -->
+            <div class="art-card">
+                <div class="image-frame"><img src="https://habrastorage.org/r/w780/getpro/habr/upload_files/350/882/0fb/3508820fbc4e166e1e24918a2fb9f547.jpeg" alt="Кристаллы" loading="lazy"></div>
+                <div class="card-info"><h3>долина кристаллов</h3><span class="ai-badge">DALL·E</span></div>
+            </div>
+            <!-- 12 -->
+            <div class="art-card">
+                <div class="image-frame"><img src="https://avatars.mds.yandex.net/i?id=5593a4a0f72ca8d4d3cb79c6801dff5a_l-10340874-images-thumbs&n=13" alt="Девушка и луна" loading="lazy"></div>
+                <div class="card-info"><h3>лунная соната</h3><span class="ai-badge">Midjourney</span></div>
+            </div>
+        </div>
+
+        <footer class="footer-note">
+              Сделал ·  Шафиков Адлан  
+        </footer>
+    </main>
+
+    <script>
+        const images = document.querySelectorAll('.image-frame img');
+        images.forEach(img => {
+            img.addEventListener('error', function() {
+                this.onerror = null;
+                this.src = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNTAwIiB2aWV3Qm94PSIwIDAgNDAwIDUwMCI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI1MDAiIGZpbGw9IiMyMjNhMjIiLz48cGF0aCBkPSJNMjAwIDI1MCBMMzAwIDI1MCBNMjUwIDIwMCBMMjUwIDMwMCIgc3Ryb2tlPSIjNTVhYTVhIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjx0ZXh0IHg9IjIwMCIgeT0iMjkwIiBmb250LWZhbWlseT0iQ29ybW9yYW50IEdhcmFtb25kLCBzZXJpZiIgZm9udC1zaXplPSIyMiIgZmlsbD0iIzdjYjI3YyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zdHlsZT0iaXRhbGljIj5jeWJlciBlYXJ0aDwvdGV4dD48L3N2Zz4=';
+            });
+        });
+    </script>
+</body>
+</html>
